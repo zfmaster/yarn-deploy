@@ -18,7 +18,7 @@ pipelines:
             - ssh $SSH_USER@$SSH_ADDRESS "mkdir $DEVELOP_PATH/releases/$BITBUCKET_BUILD_NUMBER"
             - rsync -a dist/* $SSH_USER@$SSH_ADDRESS:$DEVELOP_PATH/releases/$BITBUCKET_BUILD_NUMBER
             - ssh $SSH_USER@$SSH_ADDRESS "chmod -R g+rw $DEVELOP_PATH/releases/$BITBUCKET_BUILD_NUMBER"
-            - ssh $SSH_USER@$SSH_ADDRESS "rm $DEVELOP_PATH/current && ln -s $DEVELOP_PATH/releases/$BITBUCKET_BUILD_NUMBER $DEVELOP_PATH/current"
+            - ssh $SSH_USER@$SSH_ADDRESS "rm -f $DEVELOP_PATH/current && ln -s $DEVELOP_PATH/releases/$BITBUCKET_BUILD_NUMBER $DEVELOP_PATH/current"
 ```
 
 [![docker](https://dockeri.co/image/zfmaster/yarn-deploy)](https://dockeri.co/image/zfmaster/yarn-deploy)
